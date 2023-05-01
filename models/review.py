@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/python3
+
 """ holds class Review"""
 import models
 from models.base_model import BaseModel, Base
@@ -22,3 +23,4 @@ class Review(BaseModel, Base):
     def __init__(self, *args, **kwargs):
         """initializes Review"""
         super().__init__(*args, **kwargs)
+
