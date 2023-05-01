@@ -1,53 +1,43 @@
-# Airbnb_clone REST -API
+# API with Swagger
 
-REST API is a software architectural style for Backend.
+## Description
+
+This Directory contains API files and documenation
+
+## Environment
+
+* __OS:__ Ubuntu 14.04 LTS
+* __language:__ Python 3.4.3
+* __application server:__ Flask 0.12.2, Jinja2 2.9.6
+* __web server gateway:__ gunicorn (version 19.7.1)
+* __database:__ mysql Ver 14.14 Distrib 5.7.18
+* __documentation:__ Swagger (flasgger==0.6.6)
+* __Style:__
+  * __python:__ PEP 8 (v. 1.7.0)
+
+## Testing API
+
+* Execute program:
 
 ```
- REST = “REpresentational State Transfer”. API = Application Programming Interface
-
+HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd \
+HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db \
+HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5000 python3 -m api.v1.app
 ```
 
-Its purpose is to induce performance, scalability, simplicity, modifiability, visibility, portability, and reliability.
+* Testing with Swagger:
 
-REST API is Resource-based, a resource is an object and can be access by a URI. An object is “displayed”/transferred via a representation (typically JSON). HTTP methods will be actions on a resource.
+  * In browser visit path: `/apidocs` or:
+  * localhost: `http://0.0.0.0:5000/apidocs`
+  * your dowmain: `http://yourdomain/apidocs`
 
-Example:
+* Testing from CLI:
+
+```
+curl -X GET http://0.0.0.0:5000/api/v1/[YOUR API REQUEST]
 ```
 
-    Resource: Person (John)
-    Service: contact information (GET)
-    Representation:
-        first_name, last_name, date_of_birth
-        JSON format
+example:
 ```
-
-## HTTP Response
-
-In the HTTP Response, the client should verify the information of two things:
-
-    status code: result of the action
-    body: JSON or XML representation of resources
-
-### Some important status code:
+curl -X GET http://0.0.0.0:5000/api/v1/states/
 ```
-    200: OK
-    201: created => after a POST request
-    204: no content => can be return after a DELETE request
-    400: bad request => the server doesn’t understand the request
-    401: unauthorized => client user can’t be identified
-    403: forbidden => client user is identified but not allowed to access a resource
-    404: not found => resource doesn’t exist
-    500: internal server error
-```
-
-## Resources
-
- [restful api design --miguelgrinberg](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask)
-
- [Blueprints](https://flask.palletsprojects.com/en/2.1.x/blueprints/)
-
- [Testing flask apps](https://flask.palletsprojects.com/en/1.1.x/testing/)
-
- [Flask CORS](https://flask-cors.readthedocs.io/en/latest/)
-
- []()
